@@ -1,0 +1,1319 @@
+gg.setVisible(true)
+gg.setRanges(gg.REGION_C_BSS)
+gg.clearResults()
+
+function qMAINMENU()
+MM = gg.multiChoice({
+"🐱 基本メニュー",
+"⚔️ 戦闘メニュー",
+"☁ その他",
+"🚪 終了"},nil,
+
+if MM == nil then
+else
+if MM[1] == true then qSCRIPT1() end
+if MM[2] == true then qSCRIPT2() end
+if MM[3] == true then qSCRIPT3() end
+if MM[4] == true then qEND() end
+SCP=-1
+end
+end
+
+function qSCRIPT1()
+QS = gg.multiChoice({
+"🐱 猫缶",
+"🆙 XP",
+"⏫ NP",
+"📄 チケット",
+"📦 アイテム",
+"👁️‍🗨️ キャッツアイ",
+"🧃 ネコビタン",
+"🌱 マタタビ",
+"🏰 にゃんこ砲素材",
+"🔓 解放＆キャラ系",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if QS == nil then
+else
+if QS[1] == true then qNEKOKAN() end
+if QS[2] == true then qXP() end
+if QS[3] == true then qNP() end
+if QS[4] == true then qCH() end
+if QS[5] == true then qIT() end
+if QS[6] == true then qCE() end
+if QS[7] == true then qNKB() end
+if QS[8] == true then qMT() end
+if QS[9] == true then qNKHS() end
+if QS[10] == true then qKH() end
+if QS[11] == true then qBACK() end
+if QS[12] == true then qEND() end
+SCP=-1
+end
+end
+
+function qNEKOKAN()
+gg.clearResults()
+gg.searchNumber("0~~0;32400::225", gg.TYPE_DWORD)
+gg.getResults(2)
+gg.editAll("58000;0", gg.TYPE_DWORD)
+gg.toast(" 🐱 猫缶 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXP()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x40
+v[1].flags = 4
+v[1].value = 999999999
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x44
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🆙 XP : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qNP()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x48
+v[1].flags = 4
+v[1].value = 9000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4C
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" ⏫ NP : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qCH()
+ACH = gg.multiChoice({
+"‎📄 にゃんこチケット",
+"🎫 レアチケット",
+"🎟 プラチナチケット",
+"🎟✨ レジェンドチケット",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if ACH == nil then
+else
+if ACH[1] == true then qNC() end
+if ACH[2] == true then qRC() end
+if ACH[3] == true then qPC() end
+if ACH[4] == true then qRRC() end
+if ACH[5] == true then qBACK1() end
+if ACH[6] == true then qEND() end
+SCP=-1
+end
+end
+
+function qNC()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x262020
+v[1].flags = 4
+v[1].value = 999
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x262024
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 📄 にゃんこチケット : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qRC()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x262028
+v[1].flags = 4
+v[1].value = 999
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x26202C
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🎫 レアチケット : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qPC()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x843C
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x8440
+v[1].flags = 4
+v[1].value = 3
+gg.setValues(v)
+gg.toast(" 🎟 プラチナチケット : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qRRC()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x8434
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x8438
+v[1].flags = 4
+v[1].value = 3
+gg.setValues(v)
+gg.toast(" 🎟 レジェンドチケット : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qIT()
+IT = gg.multiChoice({
+"‎1️⃣ スピードアップ",
+"2️⃣ トレジャーレーダー",
+"3️⃣ ネコボン",
+"4️⃣ ニャンピュータ",
+"‎5️⃣ おかめはちもく",
+"‎6️⃣ スニャイパー",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if IT == nil then
+else
+if IT[1] == true then qSP() end
+if IT[2] == true then qTR() end
+if IT[3] == true then qNK() end
+if IT[4] == true then qPT() end
+if IT[5] == true then qOM() end
+if IT[6] == true then qSN() end
+if IT[7] == true then qBACK1() end
+if IT[8] == true then qEND() end
+SCP=-1
+end
+end
+
+function qSP()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4FF0
+v[1].flags = 4
+v[1].value = 8000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4FF4
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 1️⃣ スピードアップ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qTR()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4FF8
+v[1].flags = 4
+v[1].value = 8000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4FFC
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 2️⃣ トレジャーハンター : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qNK()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x5000
+v[1].flags = 4
+v[1].value = 8000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x5004
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 3️⃣ ネコボン : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qPT()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x5008
+v[1].flags = 4
+v[1].value = 8000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x500C
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 4️⃣ ニャンピュータ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qOM()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x5010
+v[1].flags = 4
+v[1].value = 8000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x5014
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 5️⃣ おかめはちもく : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qSN()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x5018
+v[1].flags = 4
+v[1].value = 8000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x501C
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 6️⃣ スニャイパー : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qCE()
+CE = gg.multiChoice({
+"‎1️⃣ EX",
+"2️⃣ レア",
+"3️⃣ 激レア",
+"4️⃣ 超激レア",
+"‎5️⃣ 伝説",
+"‎6️⃣ 闇",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if CE == nil then
+else
+if CE[1] == true then qEX() end
+if CE[2] == true then qRK() end
+if CE[3] == true then qUR() end
+if CE[4] == true then qTUR() end
+if CE[5] == true then qRD() end
+if CE[6] == true then qYM() end
+if CE[7] == true then qBACK1() end
+if CE[8] == true then qEND() end
+SCP=-1
+end
+end
+
+function qEX()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5C4
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5C8
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 1️⃣ EX : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qRK()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5CC
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5D0
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 2️⃣ レア : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qUR()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5D4
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5D8
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 3️⃣ 激レア : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qTUR()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5DC
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5E0
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 4️⃣ 超激レア : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qRD()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5E4
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5E8
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 5️⃣ 伝説レア : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYM()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5EC
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5F0
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 6️⃣ 闇 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qNKB()
+KB = gg.multiChoice({
+"‎Ⓐ ネコビタンA",
+"Ⓑ ネコビタンB",
+"Ⓒ ネコビタンC",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if KB == nil then
+else
+if KB[1] == true then qNKBA() end
+if KB[2] == true then qNKBB() end
+if KB[3] == true then qNKBC() end
+if KB[4] == true then qBACK1() end
+if KB[5] == true then qEND() end
+SCP=-1
+end
+end
+
+function qNKBA()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5F4
+v[1].flags = 4
+v[1].value = 3000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5F8
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" Ⓐ ネコビタンA : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qNKBB()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C5FC
+v[1].flags = 4
+v[1].value = 3000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C600
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" Ⓑ ネコビタンB : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qNKBC()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C604
+v[1].flags = 4
+v[1].value = 3000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C608
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" Ⓒ ネコビタンC : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qMT()
+MT = gg.multiChoice({
+"‎🌱 マタタビ",
+"🌿‬ マタタビの種",
+"🪨 石",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if MT == nil then
+else
+if MT[1] == true then qMTA() end
+if MT[2] == true then qMTB() end
+if MT[3] == true then qMTC() end
+if MT[4] == true then qBACK1() end
+if MT[5] == true then qEND() end
+SCP=-1
+end
+end
+
+function qMTA()
+TA = gg.multiChoice({
+"💜 ",
+"🌿‬ マタタビの種",
+"🪨 石",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if TA == nil then
+else
+if TA[1] == true then qMTA() end
+if TA[2] == true then qMTB() end
+if TA[3] == true then qMTC() end
+if TA[4] == true then qBACK4() end
+if TA[5] == true then qEND() end
+SCP=-1
+end
+end
+
+function qMTB()
+TB = gg.multiChoice({
+"‎🌱 マタタビ",
+"🌿‬ マタタビの種",
+"🪨 石",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if TB == nil then
+else
+if TB[1] == true then qMTA() end
+if TB[2] == true then qMTB() end
+if TB[3] == true then qMTC() end
+if TB[4] == true then qBACK4() end
+if TB[5] == true then qEND() end
+SCP=-1
+end
+end
+
+function qMTC()
+TC = gg.multiChoice({
+"‎🌱 マタタビ",
+"🌿‬ マタタビの種",
+"🪨 石",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if TC == nil then
+else
+if TC[1] == true then qMTA() end
+if TC[2] == true then qMTB() end
+if TC[3] == true then qMTC() end
+if TC[4] == true then qBACK4() end
+if TC[5] == true then qEND() end
+SCP=-1
+end
+end
+
+function qNKHS()
+HS = gg.multiChoice({
+"‎1️⃣ ノーマル",
+"2️⃣ Z",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if HS == nil then
+else
+if HS[1] == true then qHSA() end
+if HS[2] == true then qHSZ() end
+if HS[3] == true then qBACK1() end
+if HS[4] == true then qEND() end
+SCP=-1
+end
+end
+
+function qHSA()
+SX = gg.multiChoice({
+"‎🧱 レンガ",
+"🪽 羽根",
+"🔥 備長炭",
+"⚙️ 鋼の歯車",
+"‎💸 黄金",
+"👽 宇宙石",
+"🦴 謎の骨",
+"🐌 アンモナイト",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if SX == nil then
+else
+if SX[1] == true then qXRG() end
+if SX[2] == true then qXHN() end
+if SX[3] == true then qXBT() end
+if SX[4] == true then qXHH() end
+if SX[5] == true then qXOG() end
+if SX[6] == true then qXUS() end
+if SX[7] == true then qXNH() end
+if SX[8] == true then qXAM() end
+if SX[9] == true then qBACK2() end
+if SX[10] == true then qEND() end
+SCP=-1
+end
+end
+
+function qXRG()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C60C
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C610
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🧱 レンガ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXHN()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C614
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C618
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🪽 羽根 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXBT()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C61C
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C620
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🔥 備長炭 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXHH()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C624
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C628
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" ⚙️ 鋼の歯車 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXOG()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C62C
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C630
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 💸 黄金 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXUS()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C634
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C638
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 👽 宇宙石 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXNH()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C63C
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C640
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🦴 謎の骨 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qXAM()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C644
+v[1].flags = 4
+v[1].value = 2000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C648
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🐌 アンモナイト : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qHSZ()
+SY = gg.multiChoice({
+"‎🧱 レンガZ",
+"🪽 羽根Z",
+"🔥 備長炭Z",
+"⚙️ 鋼の歯車Z",
+"‎💸 黄金Z",
+"👽 宇宙石Z",
+"🦴 謎の骨Z",
+"🐌 アンモナイトZ",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if SY == nil then
+else
+if SY[1] == true then qYRG() end
+if SY[2] == true then qYHN() end
+if SY[3] == true then qYBT() end
+if SY[4] == true then qYHH() end
+if SY[5] == true then qYOG() end
+if SY[6] == true then qYUS() end
+if SY[7] == true then qYNH() end
+if SY[8] == true then qYAM() end
+if SY[9] == true then qBACK2() end
+if SY[10] == true then qEND() end
+SCP=-1
+end
+end
+
+function qYRG()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C64C
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C650
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🧱 レンガZ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYHN()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C654
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C658
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🪽 羽根Z : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYBT()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C65C
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C660
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🔥 備長炭Z : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYHH()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C664
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C668
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" ⚙️ 鋼の歯車Z : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYOG()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C66C
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C670
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 💸 黄金Z : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYUS()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C674
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C678
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 👽 宇宙石 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYNH()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C67C
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C680
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🦴 謎の骨Z : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qYAM()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C684
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x34C688
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🐌 アンモナイトZ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qKH()
+KH = gg.multiChoice({
+"‎🐦 全キャラ解放",
+"🏝 全ステージ解放",
+"‎🐤 全キャラレベルMAX 未完成",
+"🗾 全ステージクリア 未完成",
+"💰 全ステージ最高のお宝 未完成",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if KH == nil then
+else
+if KH[1] == true then qAKK() end
+if KH[2] == true then qASK() end
+if KH[3] == true then qAKM() end
+if KH[4] == true then qASC() end
+if KH[5] == true then qAST() end
+if KH[6] == true then qBACK() end
+if KH[7] == true then qEND() end
+SCP=-1
+end
+end
+
+function qAKK()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x2CDC
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x2CDC
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🐦 全キャラ解放 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qASK()
+gg.alert('今から何か出てきますが、\n全ステージ解放したい場合は\n『はい』を押してください。')
+gg.toast("成功するまでお待ちください...")
+pcall(load(gg.makeRequest('https://pastebin.com/raw/6EFS7qce').content))
+gg.toast(" 🏝 全ステージ解放 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qAKM()
+gg.alert('今から何か出てきますが、\n全キャラレベルMAXにしたい場合は\n『はい』を押してください。')
+gg.toast("成功するまでお待ちください...")
+pcall(load(gg.makeRequest('https://pastebin.com/raw/').content))
+gg.toast(" 🐤 全キャラレベルMAX : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qASC()
+gg.alert('今から何か出てきますが、\n全ステージクリアしたい場合は\n『はい』を押してください。')
+gg.toast("成功するまでお待ちください...")
+pcall(load(gg.makeRequest('https://pastebin.com/raw/').content))
+gg.toast(" 🗾 全ステージクリア : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qAST()
+gg.alert('今から何か出てきますが、\n全ステージ最高のお宝にしたい場合は\n『はい』を押してください。')
+gg.toast("成功するまでお待ちください...")
+pcall(load(gg.makeRequest('https://pastebin.com/raw/').content))
+gg.toast(" 💰 全ステージ最高のお宝 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qSCRIPT2()
+SC = gg.multiChoice({
+"‎💙 自分の城20億",
+"🖤 即勝利",
+"🛠 ベビーラッシュ",
+"💣 にゃんこ砲ゲージMAX",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if SC == nil then
+else
+if SC[1] == true then qJS() end
+if SC[2] == true then qTK() end
+if SC[3] == true then qBR() end
+if SC[4] == true then qNKGM() end
+if SC[5] == true then qBACK() end
+if SC[6] == true then qEND() end
+SCP=-1
+end
+end
+
+function qJS()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x35100
+v[1].flags = 4
+v[1].value = 2000000000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x35100
+v[1].flags = 4
+v[1].value = 2000000000
+gg.setValues(v)
+gg.toast(" 💙 自分の城20億 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qTK()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x3FEB8
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x3FEB8
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 🖤 即勝利 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qBR()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x260D38
+v[1].flags = 4
+v[1].value = 1
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x260D38
+v[1].flags = 4
+v[1].value = 1
+gg.setValues(v)
+gg.toast(" 🛠 ベビーラッシュ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qNKGM()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x35110
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x35110
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 💣 にゃんこ砲ゲージMAX : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qSCRIPT3()
+GP = gg.multiChoice({
+"‎👑 ゴールド会員",
+"‎🈁 キャラクター編成表示",
+"‎💎 ガチャ演出スキップ",
+"‎🔟 ユーザーランク1000",
+"‎🛌 キャラ2段表示",
+"🔙 戻る",
+"🚪 終了"},nil,
+
+if GP == nil then
+else
+if GP[1] == true then qGOK() end
+if GP[2] == true then qKHH() end
+if GP[3] == true then qGES() end
+if GP[4] == true then qURT() end
+if GP[5] == true then qKNH() end
+if GP[6] == true then qBACK() end
+if GP[7] == true then qEND() end
+SCP=-1
+end
+end
+
+function qGOK()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x8AB4
+v[1].flags = 4
+v[1].value = 10
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x8AB4
+v[1].flags = 4
+v[1].value = 10
+gg.setValues(v)
+gg.toast(" 👑 ゴールド会員 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qKHH()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4F9C
+v[1].flags = 4
+v[1].value = 1
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x4F9C
+v[1].flags = 4
+v[1].value = 1
+gg.setValues(v)
+gg.toast(" 🈁 キャラクター編成表示 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qGES()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x263764
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address +0x263764
+v[1].flags = 4
+v[1].value = 0
+gg.setValues(v)
+gg.toast(" 💎 ガチャ演出スキップ : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qURT()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x9E00
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x9E00
+v[1].flags = 4
+v[1].value = 1000
+gg.setValues(v)
+gg.toast(" 🔟 ユーザーランク1000 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qKNH()
+gg.clearResults()
+gg.searchNumber("32400", 4)
+R = gg.getResults(1)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x9228
+v[1].flags = 4
+v[1].value = 256
+gg.setValues(v)
+local v = {}
+v[1] = {}
+v[1].address = R[1].address -0x9228
+v[1].flags = 4
+v[1].value = 256
+gg.setValues(v)
+gg.toast(" 🛌 キャラ2段表示 : ✅ 𝑺𝒖𝒄𝒄𝒆𝒔𝒔 ")
+end
+
+function qBACK()
+qMAINMENU() end
+
+function qBACK1()
+qSCRIPT1() end
+
+function qBACK2()
+qNKHS() end
+
+function qBACK4()
+qMT() end
+
+function qEND()
+gg.clearResults()
+gg.setVisible(true)
+print("　\n┏━━━━━━━━━━━┓\n┃　　　バイバイ👋　　　┃\n┃　　制作者︰Ara　　┃\n┗━━━━━━━━━━━┛\n")
+os.exit()
+end
+
+while true do
+if gg.isVisible(true) then
+SCP = 1 
+gg.setVisible(false)
+end
+if SCP == 1 then
+qMAINMENU()
+end
+end
